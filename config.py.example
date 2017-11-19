@@ -1,0 +1,21 @@
+config = {
+    'version': '',
+    'api_key': '',
+    'api_secret': '',
+    'btc_wallet': '',
+    'eth_wallet': '',
+    'ltc_wallet': '',
+    'usd_wallet': '',
+    'usd_fiat'  : '',
+    'eth_history_file': '/logs/eth_history.json',
+    'btc_history_file': '/logs/btc_history.json',
+    'ltc_history_file': '/logs/ltc_history.json',
+    'portfolio_file': '/logs/portfolio.json',
+    'log_file': '/logs/log.log',
+    'email_from': '',
+    'email_to': '',
+    'email_username': '',
+    'email_password': '',
+    'email_server': '',
+    'max_buy': '25.00'
+        }
