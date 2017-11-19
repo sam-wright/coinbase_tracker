@@ -11,7 +11,8 @@ I am absolutely interested in community contributions or feedback.
 
 ## Future Improvements:
 
-- Since you log the prices by default, it would be nice to employ some machine learning to the buy/sell algorithms
+- Tie into Travis or Jenkins CI to ensure proper functionality in future enhancements
+- Since the prices by default are logged, it would be nice to employ some machine learning to the buy/sell algorithms
 - I hope to make this more modular so that it will be simple to drop in new buy/sell algorithms.
 - It would be nice to not be tied directly to Coinbase
 
