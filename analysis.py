@@ -59,7 +59,7 @@ if (btc_buy_proposition and
     send_notification = True
 
 if (eth_buy_proposition and
-        get_currency_amount('USD') > 15.00
+        get_currency_amount('USD') > 15.00 and
         (get_currency_amount('ETH') > total_value) < 0.50):
 
     msg += 'Purchase Etherium @ ' + str(eth_instants[-1].buy_price) + '\n'
@@ -67,7 +67,7 @@ if (eth_buy_proposition and
     send_notification = True
 
 if (ltc_buy_proposition and
-    get_currency_amount('USD') > 15.00
+    get_currency_amount('USD') > 15.00 and
     (get_currency_amount('LTC') > total_value) < 0.50):
 
     msg += 'Purchase Litecoin @ ' + str(ltc_instants[-1].buy_price) + '\n'
