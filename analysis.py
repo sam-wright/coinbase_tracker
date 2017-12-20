@@ -37,14 +37,11 @@ ltc_sell_proposition = sell_proposition(ltc_instants, msg)
 
 msg += '\n' + '~'*60 + '\n\n'
 
-total_value = 0
+total_value = 0.0
 total_value += get_currency_amount('BTC')
 total_value += get_currency_amount('LTC')
 total_value += get_currency_amount('ETH')
 total_value += get_currency_amount('USD')
-
-# Tabulate current net worth
-total_sell_price = btc_instants[-1].sell_price+ eth_instants[-1].sell_price + ltc_instants[-1].sell_price
 
 send_notification = False
 # Buy when current_price  is below avg - X*std_dev
@@ -52,7 +49,7 @@ send_notification = False
 # Also ensure that your not over exposed on any one currency
 if (btc_buy_proposition and
         get_currency_amount('USD') > 15.00 and
-        (get_currency_amount('BTC') > total_value) < 0.50):
+        (get_currency_amount('BTC') / total_value) < 0.50):
 
     msg += 'Purchase Bitcoin @ ' + str(btc_instants[-1].buy_price) + '\n'
     buy_currency(btc_instants[-1], 15.00*(1+transaction_fee))
@@ -60,7 +57,7 @@ if (btc_buy_proposition and
 
 if (eth_buy_proposition and
         get_currency_amount('USD') > 15.00 and
-        (get_currency_amount('ETH') > total_value) < 0.50):
+        (get_currency_amount('ETH') / total_value) < 0.50):
 
     msg += 'Purchase Etherium @ ' + str(eth_instants[-1].buy_price) + '\n'
     buy_currency(eth_instants[-1], 15.00*(1+transaction_fee))
@@ -68,7 +65,7 @@ if (eth_buy_proposition and
 
 if (ltc_buy_proposition and
     get_currency_amount('USD') > 15.00 and
-    (get_currency_amount('LTC') > total_value) < 0.50):
+    (get_currency_amount('LTC') / total_value) < 0.50):
 
     msg += 'Purchase Litecoin @ ' + str(ltc_instants[-1].buy_price) + '\n'
     buy_currency(ltc_instants[-1], 15.00*(1+transaction_fee))
